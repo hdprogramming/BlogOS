@@ -22,34 +22,26 @@ CRUD işlemleri, form validasyonu, ve AJAX ile dinamik veri yönetimi gibi özel
 1. Projeyi klonla:
 
 ```bash
-git clone https://github.com/kullaniciadi/projeadi.git
+git clone https://github.com/hdprogramming/BlogOS.git
 cd projeadi
 Bağımlılıkları yükle:
 
-bash
-Kopyala
-Düzenle
+
 dotnet restore
 Veritabanı bağlantısını appsettings.json dosyasında yapılandır:
 
-json
-Kopyala
-Düzenle
+
 "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ProjeDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+     "DefaultConnection": "DataSource=app.db"
 }
 Veritabanını oluştur ve migrate et:
 
-bash
-Kopyala
-Düzenle
+
 dotnet ef database update
 Çalıştırma
 Projeyi şu komutla başlatabilirsin:
 
-bash
-Kopyala
-Düzenle
+
 dotnet run
 Sonra tarayıcıda https://localhost:5001 adresini aç.
 
