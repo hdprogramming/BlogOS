@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Tamamlanma Tarihi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@project.CompletionDate.ToString("dd.MM.yyyy")</td>
+                <td>
+                    <button class="btn btn-sm btn-primary" onclick="openEditProject(@project.Id)">✏️ Düzenle</button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteProject(@project.Id)">🗑️ Sil</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

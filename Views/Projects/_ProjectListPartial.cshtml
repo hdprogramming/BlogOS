@@ -1,0 +1,40 @@
+@model List<Project>
+
+
+<div class="row justify-content-center">
+@foreach (var project in Model)
+{    
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="project-item" >
+            <i class="bi bi-file-earmark" data-bs-toggle="modal" data-bs-target="#projectModal(@project.Id)"></i>
+            <h5>@project.Name</h5>
+             <a asp-controller="Projects" asp-action="Index" asp-route-id=@project.Id class="btn btn-sm btn-primary mt-2">Detayları Görüntüle</a>
+        </div>
+    </div> 
+}
+</div> 
+@foreach (var project in Model)
+{
+    <div class="modal fade" id="projectModal(@project.Id)" tabindex="-1" aria-labelledby="projectModal(@project.Id)Label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-l">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal(@project.Id)Label">@project.Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @project.Description
+                    <hr>
+                    <p class="text-muted">Tamamlanma Tarihi: @project.CompletionDate.ToString("dd.MM.yyyy")</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+

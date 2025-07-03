@@ -1,0 +1,66 @@
+@{
+    ViewData["Title"] = "Projeleri Yönet";
+}
+
+
+<div class="container py-4">
+    <h2 class="mb-4">Projeleri Yönet</h2>
+
+    <div class="text-end mb-3">
+        <button class="btn btn-success" onclick="openCreateModal()">+ Yeni Proje</button>
+    </div>
+<div id="projectsContainer">
+    <!-- AJAX ile buraya yüklenecek -->
+</div>
+   
+</div>
+
+
+<!-- Modal: Ekle / Düzenle -->
+<div class="modal modal-lg fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content rounded-4">
+            <div class="modal-header">
+                <h5 class="modal-title" id="projectModalLabel">Proje</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="projectForm">                  
+                    <input type="hidden" id="Id" name="Id" >
+                    <div class="mb-1">
+                        <label class="form-label">Adı</label>
+                        <input type="text" name="Name" class="form-control" required />
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Kategori</label>
+                        <input type="text" name="Category" class="form-control" required />
+                    </div>
+                     <div class="mb-1">
+                        <label class="form-label">Teknolojiler</label>
+                        <input type="text" name="Technologies" class="form-control" required />
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Açıklama</label>
+                        <textarea name="Description" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Detaylar</label>
+                        <textarea name="Details" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Tamamlanma Tarihi</label>
+                        <input type="date" name="CompletionDate" class="form-control" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button class="btn btn-primary" onclick="saveProject()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/projects.js"></script>
+}
